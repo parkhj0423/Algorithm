@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        let min = Number.MAX_SAFE_INTEGER;
+
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i] < min) {
+            min = arr[i];
+          }
+        }
+
+        내장함수 Math.min(...arr) => 매개변수로 배열을 넣을 때는 ... 스프레드 연산자 사용 / arr을 통째로 넣으면 오류
+        return min;
+      }
+
+      let arr = [5, 7, 0, 3, 2, 9, 11];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>
