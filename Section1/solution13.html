@@ -8,18 +8,17 @@
             function solution(s){         
                 let answer="";
                 for(let i of s){
-                     if(i.toLowerCase()){
-                         answer += i.toUpperCase()
-                     }else{
-                        answer += i
-                     }
+                    if(i=== i.toUpperCase()){
+                        answer+=i.toLowerCase()
+                    }else{
+                        answer+=i.toUpperCase()
+                    }
                 }
-
                 return answer;
 
             }
 
-            let str="parkhyunwoogogogogogo";
+            let str="pArKhYuNWoO";
             console.log(solution(str));
         </script>
     </body>
