@@ -1,0 +1,26 @@
+<html> 
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){  
+                let answer=0;
+                // indexOf 로 특정 문자 갯수 찾기
+                let pos = s.indexOf('k') // 0일것
+               
+                // pos가 k를 찾지 못한다면 -1을 리턴함
+                while(pos !== -1){
+                    pos = s.indexOf('k',pos+1) //pos의 위치를 1씩 증가시켜가며 탐색
+                    console.log(pos)
+                    answer++;
+                }
+
+                
+                return answer;
+            }
+            console.log(solution("ksekkset"));
+        </script>
+    </body>
+</html>

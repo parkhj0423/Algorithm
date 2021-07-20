@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){  
+                let answer=[]
+                answer = s.filter((v,i) => {
+                    //중복 문자 제거와 중복 문자열 제거는 유사 
+                    return s.indexOf(v) === i
+                })
+                return answer;
+            }
+            let str=["good", "time", "good", "time", "student"];
+            console.log(solution(str));
+        </script>
+    </body>
+</html>

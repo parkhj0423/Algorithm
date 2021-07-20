@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){  
+                let answer=''
+                let num = Math.floor(s.length /2)
+                
+                    if(s.length % 2 !==0){
+                        //홀수일 경우
+                        answer +=s[num]
+                    }else{
+                        // 짝수일 경우
+                        answer+=s[num-1]
+                        answer +=s[num]
+                    }
+               
+                return answer;
+            }
+            // subString, subStr 함수 숙지
+            <!-- function solution(s){  
+                let answer;
+                let mid=Math.floor(s.length/2)
+                if(s.length%2===1) answer=s.substring(mid, mid+1);
+                else answer=s.substring(mid-1, mid+1);
+                //if(s.length%2===1) answer=s.substr(mid, 1);
+                //else answer=s.substr(mid-1, 2);
+                return answer;
+            } -->
+            console.log(solution("length"));
+        </script>
+    </body>
+</html>
