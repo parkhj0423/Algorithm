@@ -7,6 +7,28 @@
         <script>
             function solution(arr){  
                 let answer=Number.MIN_SAFE_INTEGER;
+                let row=0;
+                let col=0;
+                let leftCross = 0;
+                let rightCross =0;
+                //행,열
+                for(let i=0; i< arr.length; i++){
+                    for(let j=0; j<arr.length; j++){
+                        row +=arr[i][j] // 행
+                        col +=arr[j][i] // 열 
+                    }
+                    answer = Math.max(answer,row,col)
+                    row = 0;
+                    col =0;
+                }
+                //대각선 *매우중요*
+                for(let i=0;i<arr.length;i++){
+                    // 왼쪽에서 오른쪽으로 내려오는 대각선 
+                    leftCross += arr[i][i]
+                    // 오른쪽에서 왼쪽으로 내려오는 대각선 
+                    rightCross+= arr[i][arr.length-i-1]
+                }
+                answer = Math.max(answer,leftCross,rightCross)
 
              
                 return answer;
