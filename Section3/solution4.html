@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s, t){
+                // 다시 보기 쫌 어려웠음
+                let answer=[];
+                
+                for(let i=0;i < s.length;i++){
+                    answer.push(s.indexOf(t,i) -i )
+                }
+                for(let i=s.length-1; i>=0;i--){
+                    if(answer[i] >i - s.lastIndexOf(t,i) ){
+                        answer[i] = i - s.lastIndexOf(t,i)
+                    } 
+                }   
+                return answer;
+            }
+            
+            let str="teachermode";
+            console.log(solution(str, 'e'));
+        </script>
+    </body>
+</html>

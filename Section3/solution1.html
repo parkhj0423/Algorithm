@@ -1,0 +1,51 @@
+<!-- <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+                let answer="YES";
+                let reverseStr = ''
+                let lowStr=  s.toLowerCase();
+                
+                for(let i =0; i< lowStr.length; i++){
+                    reverseStr+= lowStr[s.length-1-i]
+                }   
+                if(reverseStr !== lowStr){
+                    answer = 'NO'
+                }
+                
+                return answer;
+            }
+            
+            let str="DgoooGd";
+            console.log(solution(str));
+        </script>
+    </body>
+</html> -->
+
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+                let answer="YES";
+                let lowStr=  s.toLowerCase();
+                if(lowStr.split('').reverse().join('') !== lowStr) answer='NO'
+                return answer;
+            }
+            
+            let str="HDgooGdh";
+            console.log(solution(str));
+        </script>
+    </body>
+</html>
+
+
+

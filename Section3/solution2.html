@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+                // 어려움
+                let answer="YES";
+                // /[^a-z]/g , '' => a-z가 아닌 것들을 ''로 변경!! 기억하기
+                let lowStr = s.toLowerCase().replace(/[^a-z]/g,'');
+                // 나눴다가 뒤집고 다시 합치기
+                let reverseStr = lowStr.split('').reverse().join('')
+                if( lowStr !== reverseStr) answer ='NO'
+                return answer;
+            }
+            
+            let str="found7, time: study; Yduts; emit, 7Dnuof";
+            console.log(solution(str));
+        </script>
+    </body>
+</html>
