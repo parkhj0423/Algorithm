@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(n, arr){
+                let answer =0;
+                let max = Number.MIN_SAFE_INTEGER
+                let sumArr =[];
+                for(let i=0;i<n;i++){   
+                    let element = String(arr[i]).split('').reduce((acc,v)=> acc+Number(v),0)
+                    sumArr.push(element)
+                }
+                
+                for(let i=0; i<n;i++){
+                    if(sumArr[i] > max){
+                        max = sumArr[i]
+                        answer = arr[i]
+                    }else if(sumArr[i] === max){
+                        if(arr[i]> arr[sumArr.indexOf(max)]){
+                            max = sumArr[i]
+                            answer = arr[i]
+                        }else{
+                            max = arr[sumArr.indexOf(max)]
+                            answer = arr[sumArr.indexOf(max)]
+                        }
+                    }
+                }
+                return answer;
+            }
+            
+            let arr=[129, 460, 603, 40, 521, 138, 123];
+            console.log(solution(7, arr));
+        </script>
+    </body>
+</html>
+
+
+
