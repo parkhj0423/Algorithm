@@ -6,8 +6,18 @@
     <body>
         <script>
             function solution(m, product){
-                let answer=0;
-                
+                let answer=[];
+                let sum =0;
+                const rLength = product[0].length;
+                const cLength = product.length;
+                product.sort((a,b)=> (a[0] - b[0]) || (a[1] - b[1]))
+                console.log(product)
+                for(let i=0;i<cLength;i++){
+                    for(let j=0;j<rLength;j++){
+                        console.log(product[i][0])
+                    }
+                }
+
                 return answer;
             }
             
