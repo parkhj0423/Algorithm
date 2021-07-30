@@ -7,20 +7,27 @@
         <script>
             function solution(m, product){
                 let answer=[];
-                let sum =0;
-                const rLength = product[0].length;
-                const cLength = product.length;
-                product.sort((a,b)=> (a[0] - b[0]) || (a[1] - b[1]))
+                let cnt;
+                // 2차원 배열 오름 차순으로 정렬 ** 중요 **
+                product.sort((a,b)=> (a[0] - b[0]) + (a[1] - b[1]))
                 console.log(product)
-                for(let i=0;i<cLength;i++){
-                    for(let j=0;j<rLength;j++){
-                        console.log(product[i][0])
+                    for(let i=0;i<product.length;i++){
+                        let money = m - (product[i][0]/2 + product[i][1])
+                        cnt =1;
+                        for(let j=0;j<product.length;j++){
+                            if(j!==i && (product[j][0] + product[j][1]) > money) break;
+                            if(j!==i && (product[j][0] + product[j][1]) <= money){
+                                money = money - (product[j][0] + product[j][1])
+                                cnt++;
+                            }
+                        }
+                        console.log(cnt ,money)
                     }
+                    
+                return cnt;
+                    
                 }
-
-                return answer;
-            }
-            
+       
             let arr=[[6, 6], [2, 2], [4, 3], [4, 5], [10, 3]];
             console.log(solution(28, arr));
         </script>
