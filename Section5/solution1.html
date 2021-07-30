@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr1, arr2){
+                let answer=[];
+                if( arr1.length > arr2.length){
+                    for(let i=0;i<arr2.length;i++){
+                        arr1.push(arr2[i])
+                    }
+                    answer = arr1
+                }else{
+                    for(let i=0;i<arr1.length;i++){
+                        arr2.push(arr1[i])
+                    }
+                    answer = arr2
+                }
+
+                answer.sort((a,b)=> a-b)
+                
+                return answer;
+            }
+            
+            let a=[1, 3, 5];
+            let b=[2, 3, 6, 7, 9];
+            console.log(solution(a, b));
+        </script>
+    </body>
+</html>

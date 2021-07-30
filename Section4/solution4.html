@@ -6,12 +6,13 @@
     <body>
         <script>
             function solution(m, product){
-                let answer=[];
+                let answer=0
                 let cnt;
                 // 2차원 배열 오름 차순으로 정렬 ** 중요 **
                 product.sort((a,b)=> (a[0] - b[0]) + (a[1] - b[1]))
                 console.log(product)
                     for(let i=0;i<product.length;i++){
+                        // 2차원 배열중 하나의 요소를 다룰경우 그냥 통채로 처리
                         let money = m - (product[i][0]/2 + product[i][1])
                         cnt =1;
                         for(let j=0;j<product.length;j++){
@@ -21,10 +22,11 @@
                                 cnt++;
                             }
                         }
+                        if(cnt > answer) answer= cnt
                         console.log(cnt ,money)
                     }
                     
-                return cnt;
+                return answer;
                     
                 }
        
