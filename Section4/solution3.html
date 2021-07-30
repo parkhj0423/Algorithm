@@ -6,9 +6,37 @@
     <body>
         <script>
             function solution(test){
-                let answer=0;
+                let arr=[];
+                let result =[];
+                let cnt=1;
+                const rlength = test.length;
+                const clength = test[0].length;
+               
                 
-                return answer;
+                for(let i=0;i<rlength;i++){
+                    for(let j=0;j<clength;j++){
+                       for(let k=j;k<clength;k++){
+                           let p1=p2=0;
+                           if(j< k){
+                            arr.push([test[i][j],test[i][k]])
+                           }
+                       }  
+                    
+                    }
+                }
+                for(let i=0;i<arr.length;i++){
+                    cnt= 0;
+                    for(let j=i;j<arr.length;j++){
+                        if(arr[i][0] === arr[j][0] && arr[i][1] === arr[j][1] ){                   
+                            cnt++;
+                        }
+                    }
+                    if(cnt >=3){
+                        result.push(arr[i])
+                    }
+                }
+
+                return result;
             }
             
             let arr=[[3, 4, 1, 2], [4, 3, 2, 1], [3, 1, 4, 2]];
