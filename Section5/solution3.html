@@ -6,15 +6,22 @@
     <body>
         <script>
             function solution(m, arr){
-                let answer=0, lt=0, sum=0;
-                for(let i=0;i<arr.length;i++){
-                    if(sum >m) sum =0;
-                    for(let j=i+1;j<arr.length;j++){
-                        if(sum+arr[j] === m){
-                            console.log(arr[j])
-                            answer++
-                        }
-                        sum += arr[j]
+                let answer=0, tail=head=0, sum=0;
+                while(head < arr.length && tail < arr.length){
+                    if(sum === m ){
+                        answer++
+                        sum =0;
+                        tail++
+                        head =tail
+                    }
+                    else if(sum > m){
+                        sum=0;
+                        tail++
+                        head =tail
+                    }
+                    else{
+                        sum+=arr[head++]   
+                        console.log(arr[head],sum)
                     }
                 }
                 return answer;

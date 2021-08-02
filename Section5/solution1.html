@@ -9,19 +9,13 @@
                 // 투포인터알고리즘 적용법 숙지
                 // 두배열이 모두 오름차순으로 정렬되어야 투포인터 알고리즘 사용가능
                 let answer=[];
-                if( arr1.length > arr2.length){
-                    for(let i=0;i<arr2.length;i++){
-                        arr1.push(arr2[i])
-                    }
-                    answer = arr1
-                }else{
-                    for(let i=0;i<arr1.length;i++){
-                        arr2.push(arr1[i])
-                    }
-                    answer = arr2
+                let p1=p2=0;
+                while(p1 < arr1.length && p2 < arr2.length){
+                    if(arr1[p1]>arr2[p2]) answer.push(arr2[p2++])
+                    else answer.push(arr1[p1++])
                 }
-
-                answer.sort((a,b)=> a-b)
+                while(p1 < arr1.length) answer.push(arr1[p1++])
+                while(p2< arr2.length) answer.push(arr2[p2++])
                 
                 return answer;
             }
