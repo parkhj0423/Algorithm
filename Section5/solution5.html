@@ -6,8 +6,29 @@
     <body>
         <script>
             function solution(k, arr){
-                let answer, sum=0;
-       
+                let answer, sum=0, cnt =0;
+                let max = Number.MIN_SAFE_INTEGER
+                let tail=head=0;
+                while(tail < arr.length){
+                    if(head >= arr.length ){
+                        tail++
+                        head = tail
+                        sum=0
+                    }else if( sum > max && cnt===k ){
+                        console.log(sum)
+                        max = sum
+                        sum =0;
+                        cnt=0;
+                        tail++
+                        head = tail
+                    }else{
+                        sum+=arr[head++]
+                        cnt++
+                        
+                    }
+                }
+                answer= max
+                
                 return answer;
             }
             
