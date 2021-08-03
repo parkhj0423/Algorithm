@@ -7,7 +7,22 @@
         <script>
             function solution(s){  
                 let answer;
-              
+                let max = Number.MIN_SAFE_INTEGER
+                let hash = new Map()
+                for(let i=0; i<s.length; i++){
+                    if(hash.has(s[i])){
+                        hash.set(s[i],hash.get(s[i])+1)
+                    }else{
+                        hash.set(s[i],1)
+                    }
+                }
+                for(let [k,v] of hash){
+                    if(v > max){
+                        max = v
+                        answer =k
+                    }
+                }
+               
                 return answer;
             }
 

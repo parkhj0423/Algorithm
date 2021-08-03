@@ -7,12 +7,45 @@
         <script>
             function solution(str1, str2){
                 let answer="YES"; 
-          
+                let cnt=key=0;
+                let hash1 = new Map()
+                let hash2 = new Map()
+                for(let x of str1){
+                    if(hash1.has(x)){
+                        hash1.set(x,hash1.get(x)+1)
+                    }else{
+                        hash1.set(x,1)
+                    }
+                }
+
+                for(let x of str2){
+                    if(hash2.has(x)){
+                        hash2.set(x,hash2.get(x)+1)
+                    }else{
+                        hash2.set(x,1)
+                    }
+                }
+               
+                for(let [k,v] of hash1){
+                    key++
+                    if(v === hash2.get(k)){
+                        cnt++
+                    }else{
+                        return answer='NO'
+                    }
+                }
+              
+                if(cnt === key){
+                    answer='YES'
+                }else{
+                    answer='NO'
+                }
+                
                 return answer;
             }
             
-            let a="AbaAeCe";
-            let b="baeeACA";
+            let a="AbaAeCeGLE";
+            let b="GbaeeLAECA";
             console.log(solution(a, b));
         </script>
     </body>
