@@ -7,12 +7,23 @@
         <script>
             function solution(need, plan){
                 let answer="YES";
+                let stack =[]
+                need = need.split('').reverse().join('')
+                for(let x of need){
+                    stack.push(x)
+                }
+                for(let x of plan){
+                    if(x === stack[stack.length-1]) stack.pop()
+                }
+                
+                if(stack.length !==0) answer = 'NO' 
    
                 return answer;
             }
 
-            let a="CBA";
-            let b="CBDAGE";
+            let a='CBA';
+
+            let b='CBBDAGE';
             console.log(solution(a, b));
         </script>
     </body>
