@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){  
+                let answer =0;
+                let stack=[];
+                for(let x of s){
+                    console.log(x)
+                    console.log(answer)
+                    if(!isNaN(x)){
+                        stack.push(Number(x))
+                    }else if(isNaN(x) && answer ===0){
+                        let n1 = stack.pop()
+                        let n2 = stack.pop()
+                        console.log(n1,x,n2)
+                        if( x ==='+') answer=n1+n2
+                        else if( x ==='-'){
+                            if(n1 > n2) answer =n1-n2
+                            else answer = n2-n1
+                        } 
+                        else if( x ==='*') answer = n1*n2
+                        else {
+                            if(n1 > n2) answer = n1 / n2
+                            else answer = n2 /n1
+                        }
+                    }else {
+                        let n = stack.pop()
+                        if( x ==='+') answer +=n
+                        else if( x ==='-'){
+                            if( answer > n)  answer -=n
+                            else answer = n - answer
+                        }
+                        else if( x ==='*') answer *=n
+                        else {
+                            if(answer > n) answer /= n
+                            else answer = n / answer
+                        }
+                    }
+                }
+          
+                return answer;
+            }
+
+            let str="352+*9-";
+            console.log(solution(str));
+        </script>
+    </body>
+</html>
