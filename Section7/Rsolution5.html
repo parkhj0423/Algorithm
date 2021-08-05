@@ -6,8 +6,22 @@
     <body>
         <script>
             function solution(size, arr){
+                // 카카오 캐시 LRU
+                // 내장함수 말고 선택정렬로 푸는법 숙지하기...
+                // 
                 let answer=Array.from({length:size}, ()=>0);
-                
+                for(let x of arr){
+                   if(answer.includes(x)){
+                        answer.unshift(x)
+                        answer.splice(answer.lastIndexOf(x),1)
+                        
+                   }else{
+                       answer.unshift(x)
+                   }
+
+                   if(answer.length > size) answer.pop()
+                   console.log(answer)
+                }
                 return answer;
             }
 
@@ -19,7 +33,7 @@
 
 
 
-
+<!-- 
 <html>
     <head>
         <meta charset="UTF-8">
@@ -38,4 +52,4 @@
             console.log(solution(5, arr));
         </script>
     </body>
-</html>
+</html> -->
