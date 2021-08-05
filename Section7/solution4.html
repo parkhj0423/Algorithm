@@ -7,7 +7,13 @@
         <script>
             function solution(arr){
                 let answer=arr;
-               
+                for(let i=0;i<answer.length;i++){
+                    for(let j=i;j>=0;j--){
+                        if(answer[j]> answer[j+1]){
+                            [answer[j],answer[j+1]] = [answer[j+1], answer[j]]
+                        }else break;
+                    }
+                }
                 return answer;
             }
 
@@ -17,7 +23,7 @@
     </body>
 </html>
 
-
+<!-- 
 <html>
     <head>
         <meta charset="UTF-8">
@@ -36,4 +42,4 @@
             console.log(solution(arr));
         </script>
     </body>
-</html>
+</html> -->

@@ -6,14 +6,12 @@
     <body>
         <script>
             function solution(arr){
+                // 선택
                 let answer=arr;
-                let tmp =0;
                 for(let i=0; i< answer.length;i++){
                     for(let j=i+1;j<answer.length;j++){
                         if(answer[i] > answer[j]){
-                            tmp = answer[i]
-                            answer[i] = answer[j]
-                            answer[j] = tmp
+                            [answer[i], answer[j]] = [answer[j], answer[i]]
                         }   
                     }
                 }
