@@ -7,8 +7,17 @@
         <script>
             function solution(arr){
                 let answer=[];
-                for(let i =1 ; i<arr.length;i++){
-                    if(arr[i-1]> arr[i]) answer.push(i)
+                const sortArr = arr.slice().sort((a,b)=> a-b)
+                // 얕은복사, 깊은 복사의 개념 숙지
+                // 얕은 복사 : 배열을 복사하여 변경할때 원본도 같이 복사됨 
+                // ex ) let answer = arr;
+                // 깊은 복사 : 원본과 사본을 나눠 복사 
+                // ex ) let answer = arr.slice()    => 이후 sort()와 같은 정렬함수 사용
+                console.log(sortArr)
+                console.log(arr)
+
+                for(let i=0; i< sortArr.length;i++){
+                    if(sortArr[i] !== arr[i]) answer.push(i+1)
                 }
           
                 return answer;
