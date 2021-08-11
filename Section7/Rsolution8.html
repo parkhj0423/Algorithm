@@ -9,7 +9,8 @@
                 let answer=meeting
                 let cnt =0
                 let ep =0;
-
+                // 회의가 끝나는 시간으로 오름차순 정렬
+                // 끝나는 시간이 같을 경우 시작시간을 오름차순으로 정렬
                  answer.sort((a,b) => {
                     if(a[1] === b[1]) return a[0]-b[0]
                     else return a[1]-b[1]
